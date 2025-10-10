@@ -1,0 +1,49 @@
+{
+  "name": "international-pet-kiwi-derby",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "hardhat:compile": "hardhat compile",
+    "hardhat:test": "hardhat test",
+    "hardhat:deploy:local": "hardhat ignition deploy ignition/modules/TicketNFT.ts",
+    "hardhat:deploy:sepolia": "hardhat ignition deploy ignition/modules/TicketNFT.ts --network sepolia",
+    "demo:check": "hardhat run scripts/check-demo-wallet.cjs --network sepolia --config hardhat.config.cjs",
+    "demo:mint": "hardhat run scripts/demo-mint.cjs --network sepolia --config hardhat.config.cjs"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@rainbow-me/rainbowkit": "^2.0.0",
+    "wagmi": "^2.0.0",
+    "viem": "^2.0.0",
+    "@tanstack/react-query": "^5.0.0",
+    "qrcode": "^1.5.3",
+    "qr-scanner": "^1.4.2",
+    "nft.storage": "^7.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "lucide-react": "^0.400.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/qrcode": "^1.5.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+    "hardhat": "^2.22.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
