@@ -138,11 +138,13 @@ function MintPageContent() {
 
             setDemoMessage({
                 type: 'success',
-                text: `✅ Successfully minted ${quantity} demo ticket${quantity > 1 ? 's' : ''}! Demo wallet: ${data.wallet.slice(0, 6)}...${data.wallet.slice(-4)}. Check Analytics or Scanner to verify the tickets!`,
+                text: `✅ Successfully minted ${quantity} demo ticket${quantity > 1 ? 's' : ''}! Redirecting to My Tickets...`,
             });
 
-            // Don't redirect - show success message with demo wallet info
-            // User can check analytics or scanner to verify
+            // Redirect to My Tickets after 2 seconds
+            setTimeout(() => {
+                router.push('/my-tickets');
+            }, 2000);
         } catch (err: any) {
             console.error('Demo minting failed:', err);
             setDemoMessage({

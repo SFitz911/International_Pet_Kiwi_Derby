@@ -77,18 +77,25 @@ export default function MyTicketsPage() {
                             </div>
                         </div>
 
-                        {/* Refresh Button */}
-                        <div className="text-center">
+                        {/* Refresh & Scanner Buttons */}
+                        <div className="text-center flex flex-col md:flex-row md:justify-center md:items-center gap-4">
                             <button
                                 onClick={() => refetch()}
                                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition-colors"
                             >
                                 🔄 Refresh Tickets
                             </button>
-                            <p className="text-gray-400 text-sm mt-2">
-                                Click to check for newly minted tickets
-                            </p>
+                            <a
+                                href="/scanner"
+                                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-colors"
+                                style={{ display: 'inline-block' }}
+                            >
+                                🟢 Ticket Scanner
+                            </a>
                         </div>
+                        <p className="text-gray-400 text-sm mt-2 text-center">
+                            Click to check for newly minted tickets or scan a ticket
+                        </p>
 
                         {/* Tickets Display */}
                         {userBalance && userBalance > BigInt(0) ? (
@@ -117,7 +124,7 @@ export default function MyTicketsPage() {
                                             </div>
 
                                             {/* Ticket Details */}
-                                            <div className="text-left space-y-2 text-sm">
+                                            <div className="text-left space-y-2 text-sm mb-4">
                                                 <div className="flex justify-between">
                                                     <span className="text-gray-600">Token ID:</span>
                                                     <span className="font-semibold">1</span>
@@ -135,6 +142,13 @@ export default function MyTicketsPage() {
                                                     </span>
                                                 </div>
                                             </div>
+                                            {/* Analytics Button */}
+                                            <a
+                                                href="/analytics"
+                                                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-colors inline-block mt-2"
+                                            >
+                                                📊 Analytics
+                                            </a>
                                         </div>
                                     </div>
                                 ))}
