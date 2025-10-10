@@ -6,6 +6,9 @@ import { formatEther } from 'viem';
 import Navbar from '../components/Navbar';
 import { TICKET_NFT_ABI, getContractAddress } from '../contracts/config';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function AnalyticsPage() {
     const chainId = useChainId();
     const [ethToUsd, setEthToUsd] = useState<number | null>(null);

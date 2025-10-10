@@ -6,6 +6,9 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { TICKET_NFT_ABI, getContractAddress } from '../contracts/config';
 import Navbar from '../components/Navbar';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function MyTicketsPage() {
     const { address, isConnected } = useAccount();
     const chainId = useChainId();

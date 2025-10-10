@@ -6,6 +6,9 @@ import { useReadContract, useChainId } from 'wagmi';
 import { TICKET_NFT_ABI, getContractAddress } from '../contracts/config';
 import Navbar from '../components/Navbar';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function ScannerPage() {
     const [scannedData, setScannedData] = useState<string>('');
     const [verificationResult, setVerificationResult] = useState<{
