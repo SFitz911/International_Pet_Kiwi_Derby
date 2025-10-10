@@ -169,48 +169,60 @@ export default function ScannerPage() {
 
                     {/* Verification Result */}
                     {verificationResult && (
-                        <div className={`rounded-xl p-6 mb-6 ${verificationResult.isValid
-                            ? 'bg-green-50 border border-green-200'
-                            : 'bg-red-50 border border-red-200'
-                            }`}>
-                            <div className="text-center">
-                                <div className={`text-6xl mb-4 ${verificationResult.isValid ? 'text-green-500' : 'text-red-500'
-                                    }`}>
-                                    {verificationResult.isValid ? '✅' : '❌'}
+                        <>
+                            {/* Analytics Button above Valid Ticket */}
+                            {verificationResult.isValid && (
+                                <div className="text-center mb-4">
+                                    <Link href="/analytics">
+                                        <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+                                            Analytics
+                                        </button>
+                                    </Link>
                                 </div>
-                                <h3 className={`text-2xl font-bold mb-2 ${verificationResult.isValid ? 'text-green-800' : 'text-red-800'
-                                    }`}>
-                                    {verificationResult.isValid ? 'Valid Ticket!' : 'Invalid Ticket'}
-                                </h3>
-                                <p className={`text-lg mb-4 ${verificationResult.isValid ? 'text-green-700' : 'text-red-700'
-                                    }`}>
-                                    {verificationResult.message}
-                                </p>
+                            )}
+                            <div className={`rounded-xl p-6 mb-6 ${verificationResult.isValid
+                                ? 'bg-green-50 border border-green-200'
+                                : 'bg-red-50 border border-red-200'
+                                }`}>
+                                <div className="text-center">
+                                    <div className={`text-6xl mb-4 ${verificationResult.isValid ? 'text-green-500' : 'text-red-500'
+                                        }`}>
+                                        {verificationResult.isValid ? '✅' : '❌'}
+                                    </div>
+                                    <h3 className={`text-2xl font-bold mb-2 ${verificationResult.isValid ? 'text-green-800' : 'text-red-800'
+                                        }`}>
+                                        {verificationResult.isValid ? 'Valid Ticket!' : 'Invalid Ticket'}
+                                    </h3>
+                                    <p className={`text-lg mb-4 ${verificationResult.isValid ? 'text-green-700' : 'text-red-700'
+                                        }`}>
+                                        {verificationResult.message}
+                                    </p>
 
-                                {verificationResult.isValid && verificationResult.ticketInfo && (
-                                    <div className="bg-white rounded-lg p-4">
-                                        <h4 className="font-semibold text-gray-800 mb-2">Ticket Details:</h4>
-                                        <div className="space-y-2 text-sm text-left">
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Owner:</span>
-                                                <span className="font-mono text-xs">
-                                                    {verificationResult.ticketInfo.owner.slice(0, 6)}...
-                                                    {verificationResult.ticketInfo.owner.slice(-4)}
-                                                </span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Ticket ID:</span>
-                                                <span>{verificationResult.ticketInfo.ticketId}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Scanned At:</span>
-                                                <span>{verificationResult.ticketInfo.scannedAt}</span>
+                                    {verificationResult.isValid && verificationResult.ticketInfo && (
+                                        <div className="bg-white rounded-lg p-4">
+                                            <h4 className="font-semibold text-gray-800 mb-2">Ticket Details:</h4>
+                                            <div className="space-y-2 text-sm text-left">
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-600">Owner:</span>
+                                                    <span className="font-mono text-xs">
+                                                        {verificationResult.ticketInfo.owner.slice(0, 6)}...
+                                                        {verificationResult.ticketInfo.owner.slice(-4)}
+                                                    </span>
+                                                </div>
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-600">Ticket ID:</span>
+                                                    <span>{verificationResult.ticketInfo.ticketId}</span>
+                                                </div>
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-600">Scanned At:</span>
+                                                    <span>{verificationResult.ticketInfo.scannedAt}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
-                        </div>
+                        </>
                     )}
 
                     {/* Instructions */}
